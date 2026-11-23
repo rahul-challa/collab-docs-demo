@@ -1,0 +1,14 @@
+# Render Blueprint: free web service, one Node process serving the API and the built client.
+# Note: the free tier has an ephemeral disk, so the SQLite file resets on redeploy/restart and the
+# seed data (3 users + a shared welcome doc) is recreated. Attach a disk + set DB_PATH for durability.
+services:
+  - type: web
+    name: ajaia-docs
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22.21.0

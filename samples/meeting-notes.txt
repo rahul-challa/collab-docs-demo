@@ -1,0 +1,8 @@
+Meeting notes - 23 Nov
+Attendees: Alice, Bob
+
+Decisions:
+Ship the pilot on Friday.
+
+Action items:
+Bob to write the rollout email.
