@@ -4,7 +4,7 @@
 
 ## Links
 
-- **Live app:** _ADD RENDER URL HERE_
+- **Live app:** https://collab-docs-demo.onrender.com
 - **Walkthrough video:** see [VIDEO_URL.txt](VIDEO_URL.txt)
 
 ## Test accounts (no password, pick one on the sign-in screen)

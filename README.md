@@ -4,7 +4,7 @@ A lightweight collaborative document editor: create, format, import, share and r
 
 **Author:** Rahul. Product scope, architecture and trade-off decisions are mine and are documented in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). How I used AI is in [docs/AI_WORKFLOW.md](docs/AI_WORKFLOW.md).
 
-- **Live app:** see [SUBMISSION.md](SUBMISSION.md)
+- **Live app:** https://collab-docs-demo.onrender.com
 - **Demo accounts (no password):** `alice@collabdocs.test`, `bob@collabdocs.test`, `carol@collabdocs.test`
 
 ## What works
