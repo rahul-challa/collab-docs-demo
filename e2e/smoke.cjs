@@ -84,15 +84,15 @@ const step = (m) => console.log('✓', m);
 
     // ---- share with Bob as viewer ----
     await alice.getByRole('button', { name: /^Share/ }).click();
-    await alice.getByLabel('Email address').fill('bob@ajaia.test');
+    await alice.getByLabel('Email address').fill('bob@collabdocs.test');
     await alice.getByLabel('Access level').selectOption('viewer');
     await alice.getByRole('dialog').getByRole('button', { name: 'Share', exact: true }).click();
     await alice.getByText('Bob Collaborator').waitFor();
     await page_shot(alice, '04-share-dialog.png');
     // invalid email shows an error
-    await alice.getByLabel('Email address').fill('nobody@ajaia.test');
+    await alice.getByLabel('Email address').fill('nobody@collabdocs.test');
     await alice.getByRole('dialog').getByRole('button', { name: 'Share', exact: true }).click();
-    await alice.getByText('No user with email nobody@ajaia.test').waitFor();
+    await alice.getByText('No user with email nobody@collabdocs.test').waitFor();
     await alice.getByRole('button', { name: 'Done' }).click();
     step('Shared with Bob as viewer; unknown email shows validation error');
 

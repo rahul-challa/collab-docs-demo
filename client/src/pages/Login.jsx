@@ -24,7 +24,7 @@ export default function Login({ onLogin }) {
   return (
     <div className="login">
       <div className="login-card">
-        <h1><span className="logo" aria-hidden>▤</span> Ajaia Docs</h1>
+        <h1><span className="logo" aria-hidden>▤</span> Collab Docs</h1>
         <p className="muted">
           Demo sign-in: pick a seeded account. Open a second browser (or a private window) as another
           user to try sharing.

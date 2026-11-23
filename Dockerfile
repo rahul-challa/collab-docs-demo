@@ -9,7 +9,7 @@ RUN npm --prefix client run build
 
 FROM node:22-slim
 WORKDIR /app
-ENV NODE_ENV=production PORT=3001 DB_PATH=/data/ajaia.db
+ENV NODE_ENV=production PORT=3001 DB_PATH=/data/collabdocs.db
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/client/dist ./client/dist
 COPY package.json ./

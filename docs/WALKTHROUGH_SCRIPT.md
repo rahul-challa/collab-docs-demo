@@ -1,6 +1,6 @@
 # Walkthrough video outline (3–5 min)
 
-**1. Intro (20s).** "I'm Rahul. This is Ajaia Docs, a lightweight collaborative editor. I focused on three things: never losing work, server-enforced sharing, and formatting that round-trips faithfully."
+**1. Intro (20s).** "I'm Rahul. This is Collab Docs, a lightweight collaborative editor. I focused on three things: never losing work, server-enforced sharing, and formatting that round-trips faithfully."
 
 **2. Main flow (90s)**, signed in as Alice:
 - Click **New document**, rename it, and type with a heading, bold, italic, underline, and bulleted and numbered lists. Point at the save indicator, then refresh to show everything persisted.

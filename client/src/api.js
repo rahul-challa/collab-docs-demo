@@ -1,4 +1,4 @@
-const TOKEN_KEY = 'ajaia.token';
+const TOKEN_KEY = 'collabdocs.token';
 
 export class ApiError extends Error {
   constructor(status, message, body) {
@@ -33,7 +33,7 @@ async function request(method, url, body) {
   if (!res.ok) {
     if (res.status === 401) {
       setToken(null);
-      window.dispatchEvent(new Event('ajaia:logout'));
+      window.dispatchEvent(new Event('collabdocs:logout'));
     }
     throw new ApiError(res.status, data.error || `Request failed (${res.status})`, data);
   }

@@ -26,7 +26,7 @@ test('rejects unauthenticated requests and unknown accounts', async () => {
 });
 
 test('create, rename, edit and reopen a document with formatting preserved', async () => {
-  const alice = await login('alice@ajaia.test');
+  const alice = await login('alice@collabdocs.test');
   const doc = await createDoc(alice);
   assert.equal(doc.title, 'Untitled document');
   assert.equal(doc.role, 'owner');
@@ -45,9 +45,9 @@ test('create, rename, edit and reopen a document with formatting preserved', asy
 });
 
 test('sharing: owner grants access, recipient sees it under shared, roles are enforced', async () => {
-  const alice = await login('alice@ajaia.test');
-  const bob = await login('bob@ajaia.test');
-  const carol = await login('carol@ajaia.test');
+  const alice = await login('alice@collabdocs.test');
+  const bob = await login('bob@collabdocs.test');
+  const carol = await login('carol@collabdocs.test');
   const doc = await createDoc(alice, { title: 'Roadmap' });
 
   // Before sharing, Bob cannot see it at all (404, not 403, so IDs don't leak).
@@ -56,7 +56,7 @@ test('sharing: owner grants access, recipient sees it under shared, roles are en
   await request(app)
     .put(`/api/documents/${doc.id}/shares`)
     .set(alice)
-    .send({ email: 'bob@ajaia.test', role: 'viewer' })
+    .send({ email: 'bob@collabdocs.test', role: 'viewer' })
     .expect(200);
 
   const bobList = await request(app).get('/api/documents').set(bob).expect(200);
@@ -75,14 +75,14 @@ test('sharing: owner grants access, recipient sees it under shared, roles are en
   await request(app)
     .put(`/api/documents/${doc.id}/shares`)
     .set(bob)
-    .send({ email: 'carol@ajaia.test' })
+    .send({ email: 'carol@collabdocs.test' })
     .expect(403);
 
   // Upgrade to editor: Bob can now save, but still cannot delete.
   await request(app)
     .put(`/api/documents/${doc.id}/shares`)
     .set(alice)
-    .send({ email: 'bob@ajaia.test', role: 'editor' })
+    .send({ email: 'bob@collabdocs.test', role: 'editor' })
     .expect(200);
   await request(app)
     .patch(`/api/documents/${doc.id}`)
@@ -101,7 +101,7 @@ test('sharing: owner grants access, recipient sees it under shared, roles are en
 });
 
 test('stale saves are rejected with 409 instead of overwriting newer edits', async () => {
-  const alice = await login('alice@ajaia.test');
+  const alice = await login('alice@collabdocs.test');
   const doc = await createDoc(alice);
   await request(app)
     .patch(`/api/documents/${doc.id}`)
@@ -117,7 +117,7 @@ test('stale saves are rejected with 409 instead of overwriting newer edits', asy
 });
 
 test('validation and sanitisation', async () => {
-  const alice = await login('alice@ajaia.test');
+  const alice = await login('alice@collabdocs.test');
   await request(app).post('/api/documents').set(alice).send({ title: '   ' }).expect(400);
   await request(app).post('/api/documents').set(alice).send({ title: 'x'.repeat(201) }).expect(400);
 
@@ -128,7 +128,7 @@ test('validation and sanitisation', async () => {
 });
 
 test('file import: .md and .txt become documents, unsupported types are rejected', async () => {
-  const alice = await login('alice@ajaia.test');
+  const alice = await login('alice@collabdocs.test');
 
   const md = await request(app)
     .post('/api/documents/import')

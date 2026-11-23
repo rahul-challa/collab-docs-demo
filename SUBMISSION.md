@@ -1,4 +1,4 @@
-# Submission: Ajaia Docs
+# Submission: Collab Docs
 
 **Candidate:** Rahul
 
@@ -11,9 +11,9 @@
 
 | Account | Use it for |
 |---|---|
-| `alice@ajaia.test` | Owner. Already owns "Welcome to Ajaia Docs", shared with Bob. |
-| `bob@ajaia.test` | Collaborator. Sees Alice's welcome doc under **Shared with me**. |
-| `carol@ajaia.test` | Outsider. Confirms that unshared docs are not accessible. |
+| `alice@collabdocs.test` | Owner. Already owns "Welcome to Collab Docs", shared with Bob. |
+| `bob@collabdocs.test` | Collaborator. Sees Alice's welcome doc under **Shared with me**. |
+| `carol@collabdocs.test` | Outsider. Confirms that unshared docs are not accessible. |
 
 Use a private window or a second browser to be signed in as two users at once. The hosted demo runs on Render's free tier: the first request after it has been idle can take about 30 seconds, and data resets when the service restarts.
 

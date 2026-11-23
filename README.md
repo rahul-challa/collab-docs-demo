@@ -1,11 +1,11 @@
-# Ajaia Docs
+# Collab Docs
 
 A lightweight collaborative document editor: create, format, import, share and reopen documents, with owner/editor/viewer access.
 
 **Author:** Rahul. Product scope, architecture and trade-off decisions are mine and are documented in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). How I used AI is in [docs/AI_WORKFLOW.md](docs/AI_WORKFLOW.md).
 
 - **Live app:** see [SUBMISSION.md](SUBMISSION.md)
-- **Demo accounts (no password):** `alice@ajaia.test`, `bob@ajaia.test`, `carol@ajaia.test`
+- **Demo accounts (no password):** `alice@collabdocs.test`, `bob@collabdocs.test`, `carol@collabdocs.test`
 
 ## What works
 
@@ -35,16 +35,16 @@ npm run dev          # API on :3001 (restarts on change)
 npm run dev:client   # Vite on http://localhost:5173, proxies /api to :3001
 ```
 
-Data is stored in `data/ajaia.db`, which is created and seeded on first start. Delete that file to reset. Set `DB_PATH` or `PORT` to override.
+Data is stored in `data/collabdocs.db`, which is created and seeded on first start. Delete that file to reset. Set `DB_PATH` or `PORT` to override.
 
 ### Try the sharing flow
 
-1. Sign in as **Alice**. Create a document, add some formatting, then click **Share** and add `bob@ajaia.test` as *Can view*.
+1. Sign in as **Alice**. Create a document, add some formatting, then click **Share** and add `bob@collabdocs.test` as *Can view*.
 2. Open a private window (or another browser) and sign in as **Bob**. The doc appears under **Shared with me** with a *View only* badge, and the editor is read-only.
 3. As Alice, change Bob to *Can edit*. Bob reloads and can now edit.
 4. Sign in as **Carol**. Opening the same URL shows "does not exist or you do not have access".
 
-A fresh database also includes a "Welcome to Ajaia Docs" document that Alice has already shared with Bob as an editor.
+A fresh database also includes a "Welcome to Collab Docs" document that Alice has already shared with Bob as an editor.
 
 Sample import files are in [samples/](samples/): `.md`, `.txt` and `.docx`.
 
@@ -68,7 +68,7 @@ The browser smoke test logs in as Alice, Bob and Carol. It formats a document an
 The app is one Node process with one SQLite file, so any Node host works.
 
 - **Render (free):** push the repo to GitHub, then in Render choose **New → Blueprint** and select the repo. [render.yaml](render.yaml) configures it (`npm ci && npm run build`, then `npm start`, with a health check on `/api/health`). The free tier's disk is ephemeral, so data resets on each redeploy or restart and is re-seeded. That is fine for a demo, and the limitation is documented.
-- **Docker:** `docker build -t ajaia-docs . && docker run -p 3001:3001 -v ajaia-data:/data ajaia-docs` (data persists in the volume).
+- **Docker:** `docker build -t collab-docs-demo . && docker run -p 3001:3001 -v collabdocs-data:/data collab-docs-demo` (data persists in the volume).
 
 ## Project layout
 

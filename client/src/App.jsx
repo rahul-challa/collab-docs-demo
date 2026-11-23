@@ -15,8 +15,8 @@ export default function App() {
       api.me().then(setUser).catch(() => setToken(null)).finally(() => setLoading(false));
     }
     const onLogout = () => setUser(null);
-    window.addEventListener('ajaia:logout', onLogout);
-    return () => window.removeEventListener('ajaia:logout', onLogout);
+    window.addEventListener('collabdocs:logout', onLogout);
+    return () => window.removeEventListener('collabdocs:logout', onLogout);
   }, []);
 
   async function handleLogin(email) {
@@ -39,7 +39,7 @@ export default function App() {
     <div className="app">
       <header className="topbar">
         <Link to="/" className="brand">
-          <span className="logo" aria-hidden>▤</span> Ajaia Docs
+          <span className="logo" aria-hidden>▤</span> Collab Docs
         </Link>
         <div className="topbar-user">
           <span className="avatar" title={user.email}>{user.name[0]}</span>

@@ -1,8 +1,8 @@
 {
-  "name": "ajaia-docs",
+  "name": "collab-docs-demo",
   "version": "1.0.0",
   "private": true,
-  "description": "Lightweight collaborative document editor (Ajaia assessment)",
+  "description": "Lightweight collaborative document editor",
   "type": "module",
   "engines": {
     "node": ">=22.13"
