@@ -3,7 +3,7 @@
 # seed data (3 users + a shared welcome doc) is recreated. Attach a disk + set DB_PATH for durability.
 services:
   - type: web
-    name: ajaia-docs
+    name: collab-docs-demo
     runtime: node
     plan: free
     buildCommand: npm ci && npm run build
